@@ -1,11 +1,11 @@
 import ExpenseList from "./components/Expenses/ExpenseList";
+import NewExpense from "./components/NewExpense/NewExpense";
 import expensesFromApi from "./api/expenses";
 
 const App = () => {
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <p>This is also visible!</p>
+      <NewExpense />
       <ExpenseList
         expenses={expensesFromApi} 
       />
