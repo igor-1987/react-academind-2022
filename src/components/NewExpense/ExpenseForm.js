@@ -8,31 +8,13 @@ const ExpenseForm = () => {
     date: '',
   });
 
-  const titleChangeHandler = event => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        title: event.target.value,
-      };
-    });
-  };
+  const inputChangeHandler = event => {
+    const { name, value } = event.target;
 
-  const amountChangeHandler = event => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        amount: event.target.value,
-      };
-    });
-  };
-
-  const dateChangeHandler = event => {
-    setState(prevState => {
-      return {
-        ...prevState,
-        date: event.target.value,
-      };
-    });
+    setState(prevState => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   console.log(state.title);
@@ -48,8 +30,9 @@ const ExpenseForm = () => {
             <br />
             <input 
               type="text" 
+              name="title"
               value={state.title} 
-              onChange={titleChangeHandler} 
+              onChange={inputChangeHandler} 
             />
           </label>
         </div>
@@ -59,10 +42,11 @@ const ExpenseForm = () => {
             <br />
             <input 
               type="number" 
+              name="amount"
               min="0.01" 
               step="0.01"
               value={state.amount}
-              onChange={amountChangeHandler} 
+              onChange={inputChangeHandler} 
             />
           </label>
         </div>
@@ -72,10 +56,11 @@ const ExpenseForm = () => {
             <br />
             <input 
               type="date"  
+              name="date" 
               min="2019-01-01"  
               max="2022-12-31"
               value={state.date}
-              onChange={dateChangeHandler}  
+              onChange={inputChangeHandler}  
             />
           </label>
         </div>
