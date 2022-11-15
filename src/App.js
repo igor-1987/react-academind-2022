@@ -1,17 +1,17 @@
 import ExpenseList from "./components/Expenses/ExpenseList";
 import NewExpense from "./components/NewExpense/NewExpense";
-import expensesFromApi from "./api/expenses";
+import { expenses } from "./api/apiData";
 
 const App = () => {
   const addExpenseHandler = expense => {
     console.log('In App.js');
-    console.log([...expensesFromApi, expense]);
+    console.log([...expenses, expense]);
   }
 
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <ExpenseList expenses={expensesFromApi} />
+      <ExpenseList expenses={expenses} />
     </div>
   );
 }
